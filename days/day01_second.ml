@@ -1,6 +1,6 @@
-let solve () =
+let solve filename =
     (* read split lines from file *)
-    Input_reader.read_input "./inputs/day1.txt"
+    Input_reader.read_input filename
     (* split and convert to list list int *)
     |> List.map (
         fun line -> String.split_on_char ' ' line
@@ -27,4 +27,3 @@ let solve () =
     |> fun (loccurs, roccurs) ->
         List.map (fun (k, v) -> k * v * try List.assoc k roccurs with Not_found -> 0) loccurs
     |> List.fold_left (fun acc x -> acc + x) 0
-    |> Printf.printf "res: %d\n"

@@ -1,6 +1,6 @@
-let solve () =
+let solve filename =
     (* read split lines from file *)
-    Input_reader.read_input "./inputs/day1.txt"
+    Input_reader.read_input filename
     (* split and convert to list list int *)
     |> List.map (
         fun line -> String.split_on_char ' ' line
@@ -21,4 +21,3 @@ let solve () =
     |> fun (llist, rlist) -> List.map2 (fun l r -> abs (l - r)) llist rlist
     (* sum up the differences *)
     |> fun distances -> List.fold_left (fun acc d -> acc + d) 0 distances
-    |> fun sum -> print_endline (string_of_int sum)

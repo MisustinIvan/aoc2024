@@ -1,2 +1,4 @@
 (test
- (name test_aoc))
+ (name test_day01)
+ (deps ../inputs/day1_test.txt)
+ (libraries ounit2 days))
