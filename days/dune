@@ -1,2 +1,3 @@
 (library
-  (name days))
+ (name days)
+ (libraries input_reader))

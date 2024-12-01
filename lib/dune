@@ -1,2 +1,2 @@
 (library
- (name aoc))
+ (name input_reader))
