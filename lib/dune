@@ -1,2 +1,11 @@
 (library
- (name input_reader))
+ (name input_reader)
+ (modules input_reader))
+
+(library
+ (name util)
+ (modules util))
+
+(library
+ (name pretty_printer)
+ (modules pretty_printer))
