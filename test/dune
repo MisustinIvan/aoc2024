@@ -1,4 +1,22 @@
 (test
+ (name test_input_reader)
+ (deps ../inputs/test_input.txt)
+ (libraries ounit2 input_reader pretty_printer))
+
+(test
+ (name test_util)
+ (libraries ounit2 util pretty_printer))
+
+(test
+ (name test_pretty_printer)
+ (libraries ounit2 pretty_printer))
+
+(test
  (name test_day01)
  (deps ../inputs/day1_test.txt)
+ (libraries ounit2 days))
+
+(test
+ (name test_day02)
+ (deps ../inputs/day2_test.txt ../inputs/day2_edge_cases_test.txt)
  (libraries ounit2 days))
