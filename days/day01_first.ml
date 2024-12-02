@@ -1,3 +1,6 @@
+(**
+    Solves the puzzle for day 1 part 1, loading input from given filename.
+*)
 let solve filename =
     (* read split lines from file *)
     Input_reader.read_input filename
