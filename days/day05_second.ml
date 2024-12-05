@@ -13,12 +13,12 @@ let solve filename =
     |> fun (rules, pages) ->
             (process_rules rules, process_pages pages)
     (* Filters based on wheter the sorted list is the same or not as the original
-       (we only want the sorted ones)
+       (we only want the unsorted sorted ones)
        and sums up their middle element. *)
     |> fun (rules, pages) ->
             List.fold_left (fun acc page ->
                 let sorted = (List.sort (fun p1 p2 -> list_contains (try List.assoc p2 rules with Not_found -> []) p1) page) in
                 if page = sorted
-                then (List.nth sorted (List.length sorted / 2)) + acc else
-                acc
+                then acc else
+                (List.nth sorted (List.length sorted / 2)) + acc
             ) 0 pages
