@@ -23,7 +23,7 @@ let solve filename =
                 )
             in
 
-            let preprocessed_rules =
+            let processed_rules =
                 rules
                 |> String.split_on_char '\n'
                 |> List.map (fun el ->
@@ -42,8 +42,6 @@ let solve filename =
                         with
                             Not_found -> (before, [after]) :: acc
                     ) []
-            in
-            let processed_rules =  preprocessed_rules
             in
             (processed_rules, processed_pages)
     |> fun (rules, pages) ->
