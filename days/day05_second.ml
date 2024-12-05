@@ -13,7 +13,7 @@ let solve filename =
     |> fun (rules, pages) ->
             (process_rules rules, process_pages pages)
     (* Filters based on wheter the sorted list is the same or not as the original
-       (we only want the unsorted sorted ones)
+       (we only want the unsorted ones)
        and sums up their middle element. *)
     |> fun (rules, pages) ->
             List.fold_left (fun acc page ->
