@@ -13,6 +13,6 @@ let solve filename =
     (* Walk through the table until hitting the edge. *)
     |> walk_table
     (* Count visited fields *)
-    |> fun table -> Array.fold_left (fun acc row ->
+    |> fun (table, _) -> Array.fold_left (fun acc row ->
             acc + (Array.fold_left (fun acc el -> if el == 'x' then acc+1 else acc) 0 row)
     ) 0 table

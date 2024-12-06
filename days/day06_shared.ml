@@ -49,12 +49,12 @@ let table_string table = table
 
 (** Walks the table and returns the table with the visited fields marked with 'x'. *)
 let walk_table (table, (posx, posy)) =
-            let rec aux table (posx, posy) (dx, dy) =
+            let rec aux table (posx, posy) (dx, dy) acc =
                 let next_pos = (posx + dx, posy + dy) in
                 let next_el = get_el table next_pos in
                 match next_el with
-                | '0' -> set_el table (posx, posy) 'x'
-                | '.' | 'x' -> aux (set_el (set_el table (posx, posy) 'x') next_pos '^') next_pos (dx, dy)
-                | '#' -> aux table (posx, posy) (turn_right (dx,dy))
+                | '0' -> ((set_el table (posx, posy) 'x'), (((posx,posy), (dx, dy)):: acc))
+                | '.' | 'x' -> aux (set_el (set_el table (posx, posy) 'x') next_pos '^') next_pos (dx, dy) (((posx,posy), (dx, dy)):: acc)
+                | '#' -> aux table (posx, posy) (turn_right (dx,dy)) (((posx,posy), (dx, dy)):: acc)
                 | _ as tk -> failwith ("unexpected token: " ^ (String.make 1 tk))
-            in aux table (posx, posy) (0,-1)
+            in aux table (posx, posy) (0,-1) []
