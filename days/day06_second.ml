@@ -37,7 +37,6 @@ let find_visited table = table
 let solve filename =
     filename
     |> Input_reader.read_input
-    |> fun input -> Printf.printf "READ INPUT\n"; input
     (* Convert to usable format. *)
     |> List.map (fun ln -> ln |> String.to_seq |> Array.of_seq)
     (* Extract the position of the guard. *)
@@ -45,11 +44,9 @@ let solve filename =
     (* Walk through the table, marking all the visited fields. *)
     |> fun (table, guard_pos) -> (walk_table (table, guard_pos), table, guard_pos)
     |> fun (walked_table, unwalked_table, guard_pos) ->
-            Printf.printf "DONE WALKING\n";
             (walked_table, unwalked_table, guard_pos)
     |> fun (walked_table, unwalked_table, guard_pos) -> (find_visited walked_table, unwalked_table, guard_pos)
     |> fun (visited, table, guard_pos) ->
-            Printf.printf "DONE FINDING\n";
             (visited, table, guard_pos)
     |> fun (visited, table, guard_pos) ->
             List.map (fun pos ->
