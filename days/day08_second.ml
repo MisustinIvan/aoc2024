@@ -20,8 +20,15 @@ let solve filename = filename
             else if f1 = f2 then
                 let dr = r1 - r2 in
                 let dc = c1 - c2 in
-                ignore(set_el table (r1+dr) (c1+dc) '#');
-                ignore(set_el table (r2-dr) (c2-dc) '#');
+                (* Also create an antinode the the postion of the antennas. *)
+                ignore(set_el table (r1) (c1) '#');
+                ignore(set_el table (r2) (c2) '#');
+                let rec aux (p1r, p1c) (p2r, p2c) =
+                if (set_el table (p1r+dr) (p1c+dc) '#')
+                || (set_el table (p2r-dr) (p2c-dc) '#')
+                then aux ((p1r+dr), (p1c+dc)) ((p2r-dr), (p2c-dc))
+                else ()
+                in aux (r1, c1) (r2, c2)
             else ()
     ) cts; table
     |> Array.fold_left (fun acc ln ->
