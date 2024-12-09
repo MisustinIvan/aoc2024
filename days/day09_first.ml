@@ -1,9 +1,4 @@
-let repeat_a a n =
-    let rec aux acc n =
-        match n with
-        | 0 -> acc
-        | _ -> aux (a :: acc) (n-1)
-    in aux [] n
+open Day09_shared
 
 (** Find the first positive element in the list, returns it and the elements behind it. *)
 let first_pos_and_rest lst =

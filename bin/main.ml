@@ -18,4 +18,5 @@ let () =
     | "8_0" -> Days.Day08_first.solve "./inputs/day8.txt" |> print_int
     | "8_1" -> Days.Day08_second.solve "./inputs/day8.txt" |> print_int
     | "9_0" -> Days.Day09_first.solve "./inputs/day9.txt" |> print_int
+    | "9_1" -> Days.Day09_second.solve "./inputs/day9.txt" |> print_int
     | _ -> print_endline "Invalid day, usage: aoc <day_number>_<0|1>"
