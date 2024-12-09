@@ -1,26 +1,9 @@
-(** Repeats a given string n times. *)
-let repeat_str str n =
-    let rec aux acc n =
-        match n with
-        | 0 -> acc
-        | _ -> aux (acc ^ str) (n-1)
-    in aux "" n
-
 let repeat_a a n =
     let rec aux acc n =
         match n with
         | 0 -> acc
         | _ -> aux (a :: acc) (n-1)
     in aux [] n
-
-let find_index_from_end arr elem =
-    let len = Array.length arr in
-    let rec aux i acc = if i < 0
-        then acc
-        else if arr.(i) = elem then Some (len - 1 - i)
-        else aux (i - 1) acc
-    in
-      aux (len - 1) None
 
 (** Find the first positive element in the list, returns it and the elements behind it. *)
 let first_pos_and_rest lst =
