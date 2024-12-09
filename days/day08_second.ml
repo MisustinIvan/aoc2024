@@ -1,7 +1,7 @@
 open Day08_shared
 
 (**
-    Solves the puzzle for day 7 part 1, loading input from given filename.
+    Solves the puzzle for day 8 part 1, loading input from given filename.
 *)
 let solve filename = filename
     |> Input_reader.read_input
