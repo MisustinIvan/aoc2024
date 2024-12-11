@@ -1,15 +1,7 @@
-(** Updates a given stone according to the rules described in the puzzle. *)
-let update num =
-    match num with
-    | 0 -> [1]
-    | _ when ((num |> string_of_int |> String.length) mod 2) = 0 -> 
-            let s  = num |> string_of_int in
-            let mid = (s |> String.length) /2 in
-            [int_of_string (String.sub s 0 mid); int_of_string (String.sub s mid mid)]
-    | _ -> [num*2024]
+open Day11_shared
 
 (**
-    Solves the puzzle for day 10 part 1, loading input from given filename.
+    Solves the puzzle for day 11 part 1, loading input from given filename.
 *)
 let solve filename =
     filename
