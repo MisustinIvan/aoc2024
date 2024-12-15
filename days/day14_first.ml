@@ -16,5 +16,4 @@ let solve filename = filename
                 None
         )
     |> List.map (fun specs -> iter_bot specs (101, 103) 6577)
-    |> fun els -> print_bots els (101,103); els
     |> safety
