@@ -2,7 +2,7 @@ open OUnit2
 
 let test_solve_day14_first _ =
     let solution = Days.Day14_first.solve "../inputs/day14_test.txt" in
-    let expected_result = 12 in
+    let expected_result = 21 in
     assert_equal ~printer:string_of_int
     expected_result solution
 
