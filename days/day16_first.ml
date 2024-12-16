@@ -16,7 +16,7 @@ let visualize_path (maze : block array array) (path : pos list) =
     |> Array.to_list
     |> String.concat "\n"
 
-let a_star (maze : block array array) (start_pos : pos) (end_pos : pos) =
+let dijkstra (maze : block array array) (start_pos : pos) (end_pos : pos) =
     let rows = Array.length maze in
     let cols = Array.length maze.(0) in
     (* stores visited positions and directions *)
@@ -59,7 +59,7 @@ let a_star (maze : block array array) (start_pos : pos) (end_pos : pos) =
 let solve_maze (maze : block array array) =
     let start_pos = find_block maze Start in
     let end_pos = find_block maze End in
-    a_star maze start_pos end_pos
+    dijkstra maze start_pos end_pos
 
 let solve filename =
     filename

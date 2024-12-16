@@ -31,7 +31,7 @@ let count_tiles (maze : block array array) (paths : pos list list) =
     |> List.of_seq
     |> List.fold_left (fun acc el -> if el = '*' then acc+1 else acc) 0
 
-let a_star_all (maze : block array array) (start_pos : pos) (end_pos : pos) =
+let dijkstra_all (maze : block array array) (start_pos : pos) (end_pos : pos) =
     let rows = Array.length maze in
     let cols = Array.length maze.(0) in
     (* stores the best cost for a given coordinate and direction that was already visited *)
@@ -86,7 +86,7 @@ let solve_maze_all (maze : block array array) =
     let start_pos = find_block maze Start in
     let end_pos = find_block maze End in
     (* finds all the possible paths through the graph of the same lowest cost *)
-    let solutions = a_star_all maze start_pos end_pos in
+    let solutions = dijkstra_all maze start_pos end_pos in
     if print_enabled then Printf.printf "found %d paths with cost %d\n" (List.length solutions) (List.hd solutions).cost;
     let paths = List.map reconstruct_path solutions in
     if print_enabled then Printf.printf "Path:\n%s\n\n" (visualize_paths maze paths);
