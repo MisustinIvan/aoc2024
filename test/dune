@@ -90,3 +90,8 @@
  (name test_day16)
  (deps ../inputs/day16_test_0.txt ../inputs/day16_test_1.txt)
  (libraries ounit2 days))
+
+(test
+ (name test_day17)
+ (deps ../inputs/day17_test_0.txt ../inputs/day17_test_1.txt)
+ (libraries ounit2 days))
